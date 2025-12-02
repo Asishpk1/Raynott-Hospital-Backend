@@ -19,3 +19,18 @@ exports.addAppointmentsController = async (req,res) =>{
     }
     
 }
+
+exports.getAllAppointmentsController = async (req,res) =>{
+    console.log("Inside getAllAppointmentsController");
+
+    try{
+        const allAppointments = await appointments.find()
+        res.status(200).json(allAppointments)
+    }
+    catch(err){
+        res.status(401).json(err)
+        console.log(err);
+        
+    }
+    
+}
